@@ -1,0 +1,39 @@
+{
+  "name": "lru-cache-service",
+  "private": true,
+  "version": "0.0.0",
+  "description": "lru cache as a service",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_ENV=test node test",
+    "start": "node index.js",
+    "dev": "NODE_ENV=development supervisor -n exit -i public -e js,coffee index"
+  },
+  "author": {
+    "name": "Tom Hummel",
+    "email": "tphummel@gmail.com",
+    "url": "tomhummel.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:tphummel/lru-cache-service.git"
+  },
+  "keywords": [],
+  "license": "MIT",
+  "homepage": "https://github.com/tphummel/lru-cache-service",
+  "bugs": {
+    "url": "https://github.com/tphummel/lru-cache-service/issues"
+  },
+  "dependencies": {
+    "coffee-script": "^1.7.1",
+    "lru-cache": "^2.5.0",
+    "restify": "^2.8.1"
+  },
+  "devDependencies": {
+    "supervisor": "^0.6.0",
+    "tape": "^2.13.1"
+  },
+  "engines": {
+    "node": "0.10.x"
+  }
+}
