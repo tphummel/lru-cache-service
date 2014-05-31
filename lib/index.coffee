@@ -13,6 +13,7 @@ logger      = require './logger'
 
 cache    = require './api/cache'
 health   = require './api/health'
+mashape  = require './mashape'
 
 module.exports = server = restify.createServer
   name: 'lru-cache-service'
@@ -21,6 +22,8 @@ module.exports = server = restify.createServer
 server.use restify.bodyParser()
 server.use (restify.acceptParser server.acceptable)
 server.use restify.gzipResponse()
+
+server.use mashape if isProd
 
 server.on 'after', logger
 
