@@ -6,8 +6,6 @@ restify = require 'restify'
 
 lruCache = require '../lru'
 
-host = 'whatthelru.com'
-
 module.exports =
   create: (req, res, next) ->
     body = req?.body
