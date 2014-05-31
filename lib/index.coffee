@@ -3,6 +3,9 @@ process.env.NODE_ENV ?= 'development'
 {NODE_ENV, MASHAPE_SECRET} = process.env
 isProd = NODE_ENV is 'production'
 
+console.log 'NODE_ENV:', NODE_ENV
+console.log 'MASHAPE_SECRET:', MASHAPE_SECRET
+
 process.exit 1 if isProd and !MASHAPE_SECRET
 
 port = process.env.PORT or '3000'
