@@ -6,5 +6,5 @@ module.exports = (req, res) ->
 
   console.log JSON.stringify
     ts: req._time
-    path: req.route.path
-    verb: req.route.method
+    path: req.route?.path
+    verb: req.route?.method
