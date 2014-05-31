@@ -11,6 +11,7 @@ url         = require 'url'
 restify     = require 'restify'
 logger      = require './logger'
 pkg         = require '../package.json'
+cacheApi    = require './api/cache'
 
 module.exports = server = restify.createServer
   name: 'lru-cache-service'
@@ -30,6 +31,9 @@ server.get '/api/health', (req, res, next) ->
     package: pkg.version
 
   next()
+
+server.post '/api/cache', cacheApi.create
+server.get '/api/cache/:key', cacheApi.find
 
 server.listen port, ->
   console.log "#{server.name} listening on port #{port}"

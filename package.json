@@ -27,7 +27,8 @@
   "dependencies": {
     "coffee-script": "^1.7.1",
     "lru-cache": "^2.5.0",
-    "restify": "^2.8.1"
+    "restify": "^2.8.1",
+    "uuid": "^1.4.1"
   },
   "devDependencies": {
     "supervisor": "^0.6.0",
