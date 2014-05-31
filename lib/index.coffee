@@ -25,6 +25,10 @@ server.use restify.gzipResponse()
 
 server.use mashape if isProd
 
+server.get '/', restify.serveStatic
+  directory: './doc'
+  default: 'index.html'
+
 server.on 'after', logger
 
 server.get '/api/health', health
