@@ -10,8 +10,9 @@ port = process.env.PORT or '3000'
 url         = require 'url'
 restify     = require 'restify'
 logger      = require './logger'
-pkg         = require '../package.json'
-cacheApi    = require './api/cache'
+
+cache    = require './api/cache'
+health   = require './api/health'
 
 module.exports = server = restify.createServer
   name: 'lru-cache-service'
@@ -23,17 +24,10 @@ server.use restify.gzipResponse()
 
 server.on 'after', logger
 
-server.get '/api/health', (req, res, next) ->
-  res.send 200,
-    status: 'OK'
-    ts: req._time
-    service: server.name
-    package: pkg.version
+server.get '/api/health', health
 
-  next()
-
-server.post '/api/cache', cacheApi.create
-server.get '/api/cache/:key', cacheApi.find
+server.post '/api/cache', cache.create
+server.get '/api/cache/:key', cache.find
 
 server.listen port, ->
   console.log "#{server.name} listening on port #{port}"
