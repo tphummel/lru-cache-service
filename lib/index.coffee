@@ -19,7 +19,7 @@ module.exports = server = restify.createServer
 server.use restify.bodyParser()
 server.on 'after', logger
 
-server.get '/health', (req, res, next) ->
+server.get '/api/health', (req, res, next) ->
   res.send 200,
     status: 'OK'
     ts: req._time

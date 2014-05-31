@@ -10,14 +10,14 @@ jsonClient = restify.createJsonClient
   url: 'http://localhost:4444'
   version: '*'
 
-test '/health', (t) ->
+test '/api/health', (t) ->
   server = require '../../lib'
 
   jsonClient = restify.createJsonClient
     url: 'http://localhost:4444'
     version: '*'
 
-  jsonClient.get '/health', (err, req, res, obj) ->
+  jsonClient.get '/api/health', (err, req, res, obj) ->
     t.notOk err, 'no err'
     t.equal obj.status, 'OK', 'status OK'
     t.end()
