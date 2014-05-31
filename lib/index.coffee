@@ -13,10 +13,13 @@ logger      = require './logger'
 pkg         = require '../package.json'
 
 module.exports = server = restify.createServer
-  name: 'service-starter'
+  name: 'lru-cache-service'
   version: '0.0.0'
 
 server.use restify.bodyParser()
+server.use (restify.acceptParser server.acceptable)
+server.use restify.gzipResponse()
+
 server.on 'after', logger
 
 server.get '/api/health', (req, res, next) ->
