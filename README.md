@@ -1,5 +1,6 @@
 
 [![Build Status](https://travis-ci.org/tphummel/lru-cache-service.png)](https://travis-ci.org/tphummel/lru-cache-service)
+![codeship status](https://codeship.io/projects/15a895e0-c5b0-0131-7c43-4243fba9f57d/status)
 
 ## install
 
