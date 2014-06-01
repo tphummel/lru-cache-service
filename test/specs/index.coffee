@@ -34,6 +34,7 @@ test '/api/cache', (t) ->
       'location'
       'content-location'
       'date'
+      'x-created-key'
     ]
 
     for key in expectedHeaders

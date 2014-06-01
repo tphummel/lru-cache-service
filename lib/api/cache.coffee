@@ -26,6 +26,8 @@ module.exports =
       return next new restify.InvalidArgumentError msg
 
     cacheKey = uuid.v4()
+    res.header 'x-created-key', cacheKey
+
     lruCache.set cacheKey, bodyJson
 
     res.header 'Content-Length', bodyJson.length
