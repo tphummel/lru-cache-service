@@ -1,10 +1,8 @@
 pkg         = require '../../package.json'
 lruCache    = require '../lru'
 
-
-
 module.exports = (req, res, next) ->
-  # console.log process
+
   res.send 200,
     status: 'OK'
     ts: req._time
